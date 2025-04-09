@@ -7,8 +7,7 @@ public class Game{
     private Enemy[] enemies;
     private Treasure[] treasures;
     private Trophy trophy;
-    private int size; 
-    private String lvl;
+    private int size;
 
     public Game(int size){ //the constructor should call initialize() and play()
         this.size=size; //sets parameter size as this size
@@ -92,23 +91,8 @@ public class Game{
     }
 
     public void initialize(){
-        Scanner scanner1= new Scanner(System.in);
-        System.out.println("Please type in a valid level: easy, medium, or hard?");
-        lvl= scanner1.nextLine();
         player= new Player(0, 0);
         grid.placeSprite(player);
-        if (lvl.equals("easy")) { //easy lvl: 1 enemy, 1 treasure
-            Enemy enemy1=new Enemy(3, 4);
-            grid.placeSprite(enemy1);
-            
-            Treasure treasure1= new Treasure(8, 5);
-            treasures= new Treasure[] {treasure1};
-            grid.placeSprite(treasure1);
-            
-            trophy= new Trophy(0, 9);
-            grid.placeSprite(trophy);
-        }else if (lvl.equals("medium")) { //medium lvl: 2 enemies, 3 treasures
-            
             Enemy enemy1= new Enemy(7, 1);
             grid.placeSprite(enemy1);
             Enemy enemy2= new Enemy(5, 7);
@@ -124,31 +108,9 @@ public class Game{
             treasures= new Treasure[] {treasure1, treasure2, treasure3};
             trophy= new Trophy(0, 9);
             grid.placeSprite(trophy);
-        }else{
-            //hard lvl: 6 enemies, 1 treasure, num lives=1
-            player.setLives(1);
-            
-            Enemy enemy1= new Enemy(6, 1); 
-            grid.placeSprite(enemy1);
-            Enemy enemy2= new Enemy(0, 7);
-            grid.placeSprite(enemy2);
-            Enemy enemy3= new Enemy(7, 6);
-            grid.placeSprite(enemy3);
-            Enemy enemy4= new Enemy(4, 3);
-            grid.placeSprite(enemy4);
-            Enemy enemy5= new Enemy(2, 5);
-            grid.placeSprite(enemy5);
-            
-            Treasure treasure1= new Treasure(7, 7);
-            grid.placeSprite(treasure1);
-            treasures= new Treasure[] {treasure1};
-
-            trophy= new Trophy(4, 5);
-            grid.placeSprite(trophy);
-
+            grid.display();
         }
-        grid.display();
-    }
+
 
     public static void main(String[] args) {
         Game game= new Game(10);
