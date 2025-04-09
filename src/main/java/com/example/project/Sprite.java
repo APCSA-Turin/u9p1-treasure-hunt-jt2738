@@ -4,27 +4,37 @@ public class Sprite {
     private int x, y;
 
     public Sprite(int x, int y) {
-        this.x = x;
+        this.x = x; //sets x and y instance varis
         this.y = y;
     }
 
-    public int getX(){return 1;}//placeholder
-    public int getY(){return 1;}
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
 
-    public void setX(){}
-    public void setY(){}
+    //setter methods
+    public void setX(int newX){
+        x= newX;
+    }
+    public void setY(int newY){
+        y=newY;
+    }
 
+    //getter methods 
     public String getCoords(){ //returns the coordinates of the sprite ->"(x,y)"
-        return "";
+        return "(" + getX() + ","+ getY() + ")";
     }
 
     public String getRowCol(int size){ //returns the row and column of the sprite -> "[row][col]"
-        return "[][]";
+        return "["+ (size-1-getY()) + "][" + (getX()) + "]" ;
     }
     
 
     public void move(String direction) { //you can leave this empty
-        // Default behavior (can be overridden by subclasses)
+    
     }
 
     public void interact() { //you can leave this empty
